@@ -41,7 +41,8 @@ translations = {
 			"issued_by": "Issued by DataCamp · 2026",
 			"project_one": "CocoDatte",
 			"project_two": "Collège Jean XXIII",
-			"project_description": "Short description here.",
+			"project_description_one": "Website for a travel booking company.",
+			"project_description_two": "Website for an educational and religious institution.",
 		},
 		"services": {
 			"eyebrow": "What I Do",
@@ -117,11 +118,12 @@ translations = {
 			"tech_stack": "Technologies",
 			"live_demo": "Démo en ligne",
 			"details": "Détails",
-			"intermediate_sql": "SQL intermédiaire",
+			"intermediate_sql": "SQL Intermédiaire",
 			"issued_by": "Délivré par DataCamp · 2026",
 			"project_one": "CocoDatte",
 			"project_two": "Collège Jean XXIII",
-			"project_description": "WIP",
+			"project_description_one": "Site Web d'une compagnie de booking de voyages.",
+			"project_description_two": "Site Web d'une institution éducative et réligieuse.",
 		},
 		"services": {
 			"eyebrow": "Ce que je fais",
@@ -201,7 +203,9 @@ translations = {
 			"issued_by": "DataCamp · 2026",
 			"project_one": "CocoDatte",
 			"project_two": "Collège Jean XXIII",
-			"project_description": "WIP",
+			"project_description_one": "Sit entènèt pou yon konpayi rezèvasyon vwayaj.",
+			"project_description_two": "Sit entènèt pou yon enstitisyon edikatif ak relijye.",
+
 		},
 		"services": {
 			"eyebrow": "Kisa m fè?",
