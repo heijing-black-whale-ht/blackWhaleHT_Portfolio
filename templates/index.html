@@ -1,0 +1,623 @@
+{% extends 'base.html' %}
+
+{% block title %}Heijing HT — {{ t.hero.title }}{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero__content">
+
+   <div class="hero__text">
+    <!-- Badge: now monochrome, no gradient -->
+    <span class="self-start inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+        border border-white/15 bg-white/5 text-white/70 text-sm font-medium backdrop-blur">
+        {{ icon('sparkles', classes='w-4 h-4 animate-sparkle text-true-cyan') }} {{ t.hero.badge }}
+    </span>
+
+    <!-- Headline: ONLY "Developer" carries color -->
+    <h1 class="font-display text-4xl md:text-6xl font-bold text-white leading-tight">
+        <span class="bg-linear-to-r from-neon-violet to-true-cyan bg-clip-text text-transparent
+            filter-[drop-shadow(0_0_0px_var(--color-true-cyan))_drop-shadow(0_0_4px_var(--color-neon-violet))]">
+            {{ t.hero.title }}
+            <span class="inline-flex items-center justify-center w-14 h-14 rounded-lg
+             animate-terminal">
+                {{ icon('command-line', classes='w-10 h-10 inline text-true-cyan') }}
+            </span>
+        </span>
+    </h1>
+
+    <p id="typingFx" class="text-xl text-white/80 typing-cursor">
+        {{ t.hero.tagline }}
+    </p>
+    <p class="text-white/60 max-w-2xl">
+        {{ t.hero.description }}
+    </p>
+
+    <!-- Pills -->
+    <div class="flex flex-wrap gap-3 mt-4">
+        <div class="pills">Python</div>
+        <div class="pills">Flask</div>
+        <div class="pills">Node.js</div>
+        <div class="pills">JavaScript</div>
+        <div class="pills">RestAPI</div>
+        <div class="pills">HTML</div>
+        <div class="pills">CSS</div>
+        <div class="pills">Tailwind</div>
+        <div class="pills">SQL</div>
+    </div>
+
+    <!-- Buttons: only PRIMARY carries the gradient -->
+    <div class="flex gap-4 mt-4">
+        <a href="#portfolio" class="flex items-center gap-2 px-5 py-3 rounded-lg
+            bg-linear-to-r from-neon-violet to-true-cyan text-white font-semibold
+            hover:opacity-90 transition-opacity hover:shadow-lg hover:scale-105">
+            {{ icon('code-bracket', classes='w-5 h-5') }} {{ t.hero.view_portfolio }}
+        </a>
+        <a href="#contact" class="flex items-center gap-2 px-5 py-3 rounded-lg
+            border border-white/15 text-white/80 font-semibold
+            hover:bg-white/5 hover:text-white hover:backdrop-blur-sm transition-colors hover:shadow-lg hover:scale-105 backdrop-blur">
+            {{ icon('envelope', classes='w-5 h-5') }} {{ t.hero.contact_me }}
+        </a>
+    </div>
+   </div>
+   
+   <div class="hero__workspace">
+    <div class="workspace">
+        <div class="workspace__glow"></div>
+
+        <div class="workspace__monitor animate-float-slow">
+            <img
+                src="{{ url_for('static', filename='images/workspace/monitor.png') }}"
+                alt="Monitor"
+                class="w-full h-auto">
+
+            
+            <div class="workspace__screen workspace__screen--monitor">
+                <div class="">
+                    <div 
+                    id="monitorTyping" 
+                    class="typing-cursor terminal-output">
+                    </div>
+                </div>
+            </div>
+
+            <svg class="workspace__screen-outline workspace__screen-outline--monitor"
+                viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,36.9 100,0 100,60 0,100" />
+            </svg>
+        </div>
+
+        <div class="workspace__laptop animate-float">
+            <img
+                src="{{ url_for('static', filename='images/workspace/laptop.png') }}"
+                alt="Laptop"
+                class="w-full h-auto">
+
+            
+            <div class="workspace__screen workspace__screen--laptop">
+                <div class="">
+                    <div 
+                    id="laptopTyping" 
+                    class="typing-cursor terminal-output">
+                    </div>
+                </div>
+            </div>
+
+            <svg class="workspace__screen-outline workspace__screen-outline--laptop"
+                viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,0 100,31.8 100,100 0,62.8" />
+            </svg>
+
+        </div>
+
+        <div class="workspace__mug animate-float-fast">
+            <img
+                src="{{ url_for('static', filename='images/workspace/mug.png') }}"
+                alt="Coffee mug"
+                class="w-full h-auto">
+        </div>
+   </div>
+  </div>
+
+  <div class="absolute bottom-6 right-6 md:right-12">
+        <!-- Scroll Down Icon -->
+        <a href="#bottom" class="block animate-bounce text-right">
+            {{ icon('arrow-down', classes='w-6 h-6 text-white') }}
+        </a>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- On the left -->
+    <div class="hidden md:flex justify-center p-6 relative">
+        <!-- The Pulsing Glow Wrapper -->
+        <div class="animate-pulse pointer-events-none absolute inset-0 flex items-center justify-center">
+        <!-- 
+          This duplicate image is invisible, but creates a blur that matches 
+          the exact silhouette of your 'about-illustration.png' 
+        -->
+        <img src="{{ url_for('static', filename='images/about-illustration.png') }}"
+             alt="" 
+             class="max-w-md w-full h-auto opacity-70 blur-3xl saturate-150 brightness-125 mix-blend-screen">
+        </div>        
+        <!-- A photo with transparent background that'll only be on the left -->
+        <img src="{{ url_for('static', filename='images/about-illustration.png') }}"
+        alt="Illustration" class="max-w-md w-full relative z-10 h-auto">
+    </div>
+
+    <!-- On the right -->
+    <div class="flex flex-col gap-4">
+        <!-- My photo. Cicle verison -->
+        <img src="{{ url_for('static', filename='images/profile.png') }}"
+        alt="Lowin's J. A. Philias"
+        class="w-24 h-24 rounded-full object-cover border-2 border-true-cyan
+            shadow-[0_0_10px_var(--color-true-cyan),0_0_20px_var(--color-neon-violet)]">
+
+        <span class="inline-flex items-center gap-2 text-true-cyan text-sm font-medium">
+            {{ icon('sparkles', classes='w-4 h-4 animate-sparkle') }}
+            {{ t.about.eyebrow }}
+        </span>
+        
+        <h2 class="font-display text-3xl md:text-4xl font-bold bg-linear-to-r from-neon-violet to-true-cyan bg-clip-text text-transparent">
+            {{ t.about.title }}
+        </h2>
+        
+        <h5 class="flex items-center gap-2 text-lg font-semibold text-white/90 font-display">
+            {{ t.about.name }} {{ icon('check-badge', style='solid', classes='w-5 h-5 text-true-cyan inline') }}
+        </h5>
+    
+        <p class="text-white/60 leading-relaxed">        
+            {{ t.about.description }}
+        </p>
+        
+        <div class="flex gap-4 mt-2">
+            <a href="#" class="flex items-center gap-2 px-5 py-3 rounded-lg
+                bg-linear-to-r from-neon-violet to-true-cyan text-white font-semibold
+                hover:opacity-90 transition-opacity hover:shadow-lg hover:scale-105">
+                {{ icon('document-text', classes='w-5 h-5') }} {{ t.about.download_resume }}
+            </a>
+
+            <a href="#portfolio" class="flex items-center gap-2 px-5 py-3 rounded-lg
+                border border-white/15 text-white/80 font-semibold
+                hover:bg-white/5 hover:text-white transition-colors hover:shadow-lg hover:scale-105 backdrop-blur">
+                {{ icon('briefcase', classes='w-5 h-5') }} {{ t.about.see_projects }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SHOWCASE SECTION-->
+<section class="relative min-h-[700px] max-w-7xl mx-auto px-6 py-16 overflow-hidden" 
+    id="portfolio"
+    x-data="{ activeTab: 'projects'}">
+
+    <!-- Background wave illustration-->
+    <div class="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none">
+        <img src="{{ url_for('static', filename='images/portfolio-illustration.png') }}"
+             alt=""
+             class="w-full max-w-2xl md:max-w-4xl lg:max-w-6xl h-auto opacity-80 blur-md saturate-150 brightness-125">
+    </div>
+
+  <!-- Everything else sits above it -->
+  <div class="relative z-10">
+
+    <div class="text-center mb-10">
+        <h2 class="font-display text-4xl font-bold bg-linear-to-r from-neon-violet to-true-cyan bg-clip-text text-transparent
+            filter-[drop-shadow(0_0_4px_var(--color-true-violet))]">
+            {{ t.portfolio.title }}
+        </h2>
+        <p class="font-sans text-white/60 max-w-2xl mx-auto mt-3">
+            {{ t.portfolio.description }}
+        </p>
+    </div>
+
+    <!-- Tab -->
+<div class="flex justify-center gap-2 mb-10 bg-white/5 border border-white/10 rounded-xl p-1.5 max-w-xl mx-auto backdrop-blur-sm hover:shadow-lg hover:scale-105">
+    <button @click="activeTab = 'projects'"
+        :class="activeTab === 'projects' ? 'bg-linear-to-r from-neon-violet to-true-cyan text-white' : 'text-white/60 hover:text-white'"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
+        {{ icon('code-bracket', classes='w-5 h-5') }} <span class="hidden sm:inline">{{ t.portfolio.projects }}</span>
+    </button>
+    <button @click="activeTab = 'certificates'"
+        :class="activeTab === 'certificates' ? 'bg-linear-to-r from-neon-violet to-true-cyan text-white' : 'text-white/60 hover:text-white'"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
+        {{ icon('academic-cap', classes='w-5 h-5') }} <span class="hidden sm:inline">{{ t.portfolio.certificates }}</span>
+    </button>
+    <button @click="activeTab = 'techstack'"
+        :class="activeTab === 'techstack' ? 'bg-linear-to-r from-neon-violet to-true-cyan text-white' : 'text-white/60 hover:text-white'"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
+        {{ icon('cpu-chip', classes='w-5 h-5') }} <span class="hidden sm:inline">{{ t.portfolio.tech_stack }}</span>
+    </button>
+</div>
+
+    <!-- Projects panel -->
+    <div x-show="activeTab === 'projects'"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:enter-start="opacity-0 -translate-y-8"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-4" 
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='images/project1.png') }}" alt="Project 1 screenshot" class="w-full h-48 object-cover">
+            <div class="p-5">
+                <h3 class="text-lg font-bold text-white mb-2">{{ t.portfolio.project_one }}</h3>
+                <p class="text-white/60 text-sm mb-4">{{ t.portfolio.project_description }}</p>
+                <div class="flex justify-between items-center">
+                    <a href="https://cocodatte.onrender.com/" class="text-true-cyan text-sm font-medium hover:underline hover:animate-pulse flex items-center gap-1">
+                        {{ t.portfolio.live_demo }} {{ icon('arrow-top-right-on-square', classes='w-4 h-4') }}
+                    </a>
+                    <a href="#" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 text-white text-sm hover:bg-white/15 hover:shadow-lg hover:scale-105 transition-colors backdrop-blur-sm">
+                        {{ t.portfolio.details }} {{ icon('arrow-right', classes='w-4 h-4') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='images/project2.png') }}" alt="Project 2 screenshot" class="w-full h-48 object-cover">
+            <div class="p-5">
+                <h3 class="text-lg font-bold text-white mb-2">{{ t.portfolio.project_two }}</h3>
+                <p class="text-white/60 text-sm mb-4">{{ t.portfolio.project_description }}</p>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-true-cyan text-sm font-medium hover:underline hover:animate-pulse flex items-center gap-1">
+                        {{ t.portfolio.live_demo }} {{ icon('arrow-top-right-on-square', classes='w-4 h-4') }}
+                    </a>
+                    <a href="#" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 text-white text-sm hover:bg-white/15 hover:shadow-lg hover:scale-105 transition-colors backdrop-blur-sm">
+                        {{ t.portfolio.details }} {{ icon('arrow-right', classes='w-4 h-4') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Certificates panel -->
+<div x-show="activeTab === 'certificates'"
+     x-transition:enter="transition ease-out duration-500"
+     x-transition:enter-start="opacity-0 -translate-y-8"
+     x-transition:enter-end="opacity-100 translate-y-0"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100 translate-y-0"
+     x-transition:leave-end="opacity-0 translate-y-4"
+     class="max-w-3xl mx-auto">
+
+    <div class="flex flex-wrap justify-center gap-6">
+
+        <div class="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-true-cyan/30 transition-colors max-w-xs w-full backdrop-blur-sm hover:shadow-lg hover:scale-105">
+            <img src="{{ url_for('static', filename='images/SQL-datacamp.jpg') }}"
+                 alt="Certificate"
+                 class="w-full h-52 object-cover">
+            <div class="p-4">
+                <h3 class="text-white font-semibold text-sm">{{ t.portfolio.intermediate_sql }}</h3>
+                <p class="text-white/50 text-xs mt-1">{{ t.portfolio.issued_by }}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- Tech Stack panel -->
+    <div x-show="activeTab === 'techstack'"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:enter-start="opacity-0 -translate-y-8"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 translate-y-4" 
+    class="max-w-3xl mx-auto">
+        <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('python', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">Python</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('flask', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">Flask</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('nodedotjs', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">Node.js</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('javascript', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">JavaScript</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('html5', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">HTML</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('css', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">CSS</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('tailwindcss', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">Tailwind</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('postgresql', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">PostgreSQL</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('sqlalchemy', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">SQLAlchemy</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('alpinedotjs', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">Alpine.js</span>
+            </div>
+
+
+            <div class="flex flex-col items-center justify-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-true-cyan/30 transition-colors hover:shadow-lg hover:scale-105">
+                {{ icon('htmx', classes='w-10 h-10') }}
+                <span class="text-white/80 text-sm font-medium">HTMX</span>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="relative max-w-7xl mx-auto px-6 py-20">
+
+    <!-- Background wave illustration -->
+    <div class="absolute inset-x-0 top-0 flex justify-center pointer-events-none">
+        <img src="{{ url_for('static', filename='images/portfolio-illustration1.png') }}"
+             alt=""
+             class="w-full max-w-2xl md:max-w-4xl lg:max-w-none h-auto opacity-80 blur-md saturate-150 brightness-125">
+    </div>
+
+  <!-- Everything else sits above it -->
+  <div class="relative z-10">
+
+    <div class="mb-12">
+        <span class="text-true-cyan text-sm font-semibold tracking-wider uppercase">{{ t.services.eyebrow }}</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 max-w-2xl">
+            {{ t.services.title }}
+            <span class="font-display bg-linear-to-r from-neon-violet to-true-cyan bg-clip-text text-transparent">{{ t.services.title_highlight }}</span>
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+        <div class="service-card">
+            {{ icon('globe-alt', classes='w-8 h-8 text-true-cyan mb-4') }}
+            <h3 class="text-lg font-bold text-white mb-2 font-display">{{ t.services.websites }}</h3>
+            <p class="text-white/60 text-sm mb-6">
+                {{ t.services.websites_description }}
+            </p>
+            <a href="#contact" class="discover-link">
+                <span class="bg-white/5 border border-white/10 rounded-full p-2">{{ t.services.discover }}</span><span class="bg-white/5 border border-white/10 rounded-full p-2">{{ icon('arrow-right-circle', style="solid", classes='w-6 h-6') }}</span>
+            </a>
+        </div>
+
+        <div class="service-card">
+            {{ icon('device-phone-mobile', classes='w-8 h-8 text-true-cyan mb-4') }}
+            <h3 class="text-lg font-bold text-white mb-2 font-display">{{ t.services.web_apps }}</h3>
+            <p class="text-white/60 text-sm mb-6">
+                {{ t.services.web_apps_description }}
+            </p>
+            <a href="#contact" class="discover-link">
+                <span class="bg-white/5 border border-white/10 rounded-full p-2">{{ t.services.discover }}</span><span class="bg-white/5 border border-white/10 rounded-full p-2">{{ icon('arrow-right-circle', style="solid", classes='w-6 h-6') }}</span>
+            </a>
+        </div>
+
+        <div class="service-card">
+            {{ icon('cpu-chip', classes='w-8 h-8 text-true-cyan mb-4') }}
+            <h3 class="text-lg font-bold text-white mb-2 font-display">{{ t.services.software_platforms }}</h3>
+            <p class="text-white/60 text-sm mb-6">
+                {{ t.services.software_platforms_description }}
+            </p>
+            <a href="#contact" class="discover-link">
+                <span class="bg-white/5 border border-white/10 rounded-full p-2">{{ t.services.discover }}</span><span class="bg-white/5 border border-white/10 rounded-full p-2">{{ icon('arrow-right-circle', style="solid", classes='w-6 h-6') }}</span>
+            </a>
+        </div>
+
+        <div class="service-card">
+            {{ icon('server-stack', classes='w-8 h-8 text-true-cyan mb-4') }}
+            <h3 class="text-lg font-bold text-white mb-2 font-display">{{ t.services.web_services_apis }}</h3>
+            <p class="text-white/60 text-sm mb-6">
+                {{ t.services.web_services_apis_description }}
+            </p>
+            <a href="#contact" class="discover-link">
+                <span class="bg-white/5 border border-white/10 rounded-full p-2">{{ t.services.discover }}</span><span class="bg-white/5 border border-white/10 rounded-full p-2">{{ icon('arrow-right-circle', style="solid", classes='w-6 h-6') }}</span>
+            </a>
+        </div>
+  </div>
+    </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="relative max-w-7xl mx-auto px-6 py-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left: form -->
+    <div class="flex flex-col gap-6">
+
+        <div>
+            <span class="text-true-cyan text-sm font-semibold tracking-wider uppercase">{{ t.contact.eyebrow }}</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">
+                {{ t.contact.title }}
+                <span class="bg-linear-to-r from-neon-violet to-true-cyan bg-clip-text text-transparent">{{ t.contact.title_highlight }}</span>
+            </h2>
+            <p class="text-white/60 mt-4">
+                {{ t.contact.description }}
+            </p>
+        </div>
+
+<form action="{{ url_for('contact') }}" method="POST" class="flex flex-col gap-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="mb-4 rounded-lg p-4
+                {% if category == 'success' %}
+                    bg-green-600 text-white
+                {% elif category == 'danger' %}
+                    bg-red-600 text-white
+                {% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <!-- Name -->
+    <div class="relative">
+        {{ icon('user', classes='contact-input__icon') }}
+
+        <input
+            type="text"
+            name="name"
+            placeholder="* {{ t.contact.name }}"
+            class="contact-input contact-input--with-icon">
+    </div>
+
+    <!-- Email -->
+    <div class="relative">
+        {{ icon('envelope', classes='contact-input__icon') }}
+
+        <input
+            type="email"
+            name="email"
+            placeholder="* {{ t.contact.email }}"
+            class="contact-input contact-input--with-icon">
+    </div>
+
+    <!-- Subject -->
+    <div class="relative">
+        {{ icon('tag', classes='contact-input__icon') }}
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="{{ t.contact.subject }}"
+            class="contact-input contact-input--with-icon">
+    </div>
+
+    <!-- Message -->
+    <div class="relative">
+        {{ icon('chat-bubble-left-right', classes='contact-input__icon contact-input__icon--top') }}
+        <textarea
+        name="message"
+        rows="5"
+        placeholder="{{ t.contact.message }}"
+        class="contact-input contact-input--with-icon resize-none"></textarea>
+    </div>
+
+    <button type="submit" class="flex items-center justify-center gap-2 px-5 py-3 rounded-lg
+        bg-linear-to-r from-neon-violet to-true-cyan text-white font-semibold
+        hover:opacity-90 transition-opacity hover:shadow-lg hover:scale-105">
+        {{ icon('paper-airplane', classes='w-5 h-5') }} {{ t.contact.send }}
+    </button>
+
+</form>
+    <!-- Social links -->
+ <div class="mt-8" id="bottom">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-0.5 bg-linear-to-r from-neon-violet to-true-cyan"></div>
+        <span class="text-white font-semibold">{{ t.contact.connect_with_me }}</span>
+    </div>
+
+    <div class="flex flex-col gap-3">
+
+        <a href="https://www.linkedin.com/in/lowin-s-john-anderson-philias-b4580037a" target="_blank" rel="noopener noreferrer"
+           class="social-link-card">
+            {{ icon('linkedin', classes='w-6 h-6 shrink-0 text-true-cyan') }}
+            <div>
+                <p class="text-white font-semibold text-sm">{{ t.contact.lets_connect }}</p>
+                <p class="text-white/50 text-xs">{{ t.contact.on_linkedin }}</p>
+            </div>
+        </a>
+
+        <a href="https://x.com/heijinghaiti" target="_blank" rel="noopener noreferrer"
+           class="social-link-card">
+            {{ icon('x', classes='w-6 h-6 shrink-0 text-true-cyan') }}
+            <div>
+                <p class="text-white font-semibold text-sm">{{ t.contact.twitter_x }}</p>
+                <p class="text-white/50 text-xs">@heijinghaiti</p>
+            </div>
+        </a>
+
+        <a href="https://github.com/heijing-black-whale-ht" target="_blank" rel="noopener noreferrer"
+           class="social-link-card">
+            {{ icon('github', classes='w-6 h-6 shrink-0 text-true-cyan') }}
+            <div>
+                <p class="text-white font-semibold text-sm">GitHub</p>
+                <p class="text-white/50 text-xs">@heijing-black-whale-ht</p>
+            </div>
+        </a>
+
+    </div>
+ </div>
+
+    </div>
+
+  <!-- Right: illustration -->
+  <div class="hidden md:flex justify-center relative">
+
+    <!-- Pulsing glow layer -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none animate-pulse">
+        <img src="{{ url_for('static', filename='images/contact-illustration.png') }}"
+             alt=""
+             class="max-w-md w-full h-auto opacity-60 blur-2xl saturate-150 brightness-125 mix-blend-screen">
+    </div>
+
+    <!-- Sharp foreground image -->
+    <img src="{{ url_for('static', filename='images/contact-illustration.png') }}"
+         alt="Contact illustration"
+         class="max-w-md w-full h-auto relative z-10">
+
+  </div>
+</div>
+</section>
+
+
+<!-- SCRIPTS -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        startTypingEffect(
+            'typingFx', 
+        [
+            "Passionate about performant and efficient solutions!",
+            "Building clean, scalable web applications",
+            "Turning ideas into polished digital experiences"
+        ]);
+
+        startTypingEffect(
+            'laptopTyping',
+        [
+            "$ python app.py",
+            "Running on localhost",
+            "Database Connected",
+            "SMTP Ready"
+        ]);
+
+        startTypingEffect(
+            'monitorTyping',
+        [
+            "> Portfolio",
+            "> Flask",
+            "> Tailwind",
+            "> Alpine.js",
+            "> HTMX",
+            "> PostgreSQL"
+        ]
+        )
+    });
+</script>
+{% endblock %}

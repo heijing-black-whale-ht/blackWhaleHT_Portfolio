@@ -1,0 +1,360 @@
+@import "tailwindcss";
+@source "../../templates/**/*.html";
+@source "../icons/**/*.svg";
+
+@theme {
+    /* The signature deep cosmic background */
+    --color-cosmic-black: #030014;
+    --color-cosmic-dark: #0a0526;
+    --color-cosmic-night: #0e0a26;
+
+    /* High-saturation neon accents */
+    --color-neon-purple: #0b0620;
+    --color-neon-violet: #7e22ce;
+    --color-neon-cyan: #6366f1;
+    /* True Cyan */
+    --color-true-cyan: #22d3ee;
+
+    --color-deep-nebula: #0a0526;
+    --color-uv-plasma: #3b0764;
+    --color-deep-violet: #6d28d9;
+
+    --font-display: "Syne", sans-serif;
+    --font-sans: "Satoshi", sans-serif;
+}
+
+
+/* 3. Declare Your Local Font-Face Rules */
+
+/* --- LOCAL SYNE (TTF) --- */
+@font-face {
+    font-family: 'Syne';
+    src: url('../fonts/Syne-Bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- LOCAL SATOSHI (Using either your OTF or TTF versions) --- */
+/* Regular Weight (Example: using TTF) */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Variable.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium Weight (Example: using OTF) */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Weight (Example: using TTF) */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+@layer components {
+    .nav-link {
+        @apply text-white hover:text-true-cyan hover:underline hover:decoration-true-cyan hover:decoration-2 transition-all font-bold;
+    }
+}
+
+@layer components {
+    .bg-grid-glow {
+        background-color: var(--color-cosmic-black);
+        background-image:
+            radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--color-deep-violet) 55%, transparent), transparent),
+            linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: auto, 40px 40px, 40px 40px;
+    }
+}
+
+@layer utilities {
+    @keyframes sparkle-shine {
+        0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+            filter: drop-shadow(0 0 0px var(--color-true-cyan));
+        }
+        50% {
+            opacity: 1;
+            tranform: scale(1.15);
+            filter: drop-shadow(0 0 6px var(--color-true-cyan));
+        }
+    }
+
+    .animate-sparkle {
+        animation: sparkle-shine 1.8s ease-in-out infinite;
+    }
+}
+
+@layer utilities {
+    @keyframes terminal-glow {
+        0%, 100% {
+            filter: drop-shadow(0 0 2px var(--color-true-cyan));
+            border-color: color-mix(in srgb, var(--color-true-cyan) 40%, transparent);
+        }
+        50% {
+            filter: drop-shadow(0 0 8px var(--color-true-cyan));
+            border-color: var(--color-true-cyan);
+        }
+    }
+
+    .animate-terminal {
+        animation: terminal-glow 4s ease-in-out infinite;
+    }
+}
+
+@layer utilities {
+    .typing-cursor::after {
+        content: "●";
+        display: inline-block;
+        margin-left: 2px;
+        color: var(--color-true-cyan);
+        animation: blink-cursor 0.8s step-start infinite;
+    }
+
+    @keyframes blink-cursor {
+        50% { 
+            opacity: 0; 
+        }
+    }
+}
+
+@layer components {
+    .pills {    
+        @apply px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/15 text-sm text-gray-300 hover:bg-white/10 transition-colors;
+    }
+}
+
+@layer components {
+    .hero {
+        @apply relative max-w-7xl mx-auto px-6 pt-16 pb-24;
+    }
+
+    .hero__content {
+        @apply flex flex-col lg:flex-row items-center gap-12;
+    }
+
+    .hero__text {
+        @apply flex-1 flex flex-col gap-4;
+    }
+
+    .hero__workspace {
+        @apply flex-1 flex justify-center items-center w-full;
+    }
+
+    .workspace {
+        /* This acts as the boundary canvas for our percentages */
+        @apply relative w-full max-w-xl aspect-square;
+    }
+
+    .workspace__monitor {
+        /* Top-Left alignment */
+        @apply absolute z-10 w-[54%] top-[8%] left-[12%];
+        animation-delay: 0s;
+    }
+
+    .workspace__laptop {
+        /* Mid-Right alignment */
+        @apply absolute z-20 w-[60%] top-[34%] left-[36%];
+        animation-delay: 5s;
+    }
+
+    .workspace__mug {
+        /* Bottom-Left (foreground closest to viewer) */
+        @apply absolute z-30 w-[48%] top-[56%] left-[20%];
+        animation-delay: 1s;
+    }
+
+    .workspace__glow {
+        @apply absolute inset-0 z-0 m-auto w-[70%] h-[70%] top-[18%] left-[12%] rounded-full pointer-events-none;
+        @apply bg-linear-to-tr from-neon-violet/50 to-true-cyan/50;
+        @apply blur-3xl animate-pulse;
+    }
+
+    .workspace img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+
+    .workspace__monitor, 
+    .workspace__laptop {
+        position: absolute;
+    }
+
+    .workspace__screen {
+        position: absolute;
+        overflow: hidden;
+        border: 1px solid var(--color-true-cyan);
+        border-radius: 6px;
+        background: rgba(0, 255, 255, 0.25);
+    }
+
+    .workspace__screen--monitor {
+        top: 19.4%;
+        left: 23.1%;
+        width: 56.8%;
+        height: 51%;
+        clip-path: polygon(0% 36.9%, 100% 0%, 100% 60%, 0% 100%);
+    }
+
+    .workspace__screen--laptop {
+        top: 11.7%;
+        left: 36.6%;
+        width: 46.9%;
+        height: 51.6%;
+        clip-path: polygon(0% 0%, 100% 31.8%, 100% 100%, 0% 62.8%);
+    }
+
+    .terminal {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        background: #0f1117;
+        padding:.4rem .6rem;
+        position: relative;
+    }
+
+    .terminal-output {
+        font-family: "JetBrains Mono", monospace;
+        font-size: .55rem;
+        color: #00ff9d;
+        line-height: 1.4;
+        white-space: pre-wrap;
+        position: absolute;
+        left: 8%;
+        right: 6%; 
+    }
+
+    .workspace__screen--monitor .terminal-output {
+        top: 42%;
+        transform: skewY(-18.29deg);
+        transform-origin: left top;
+    }
+
+    .workspace__screen--laptop .terminal-output {
+        top: 10%;
+        transform: skewY(19.29deg);
+        transform-origin: left top;
+    }
+
+    .workspace__screen-outline {
+    position: absolute;
+    pointer-events: none;
+    z-index: 40; /* above the terminal fill */
+}
+
+.workspace__screen-outline--monitor {
+    top: 19.4%;
+    left: 23.1%;
+    width: 56.8%;
+    height: 51%;
+}
+
+.workspace__screen-outline--laptop {
+    top: 11.7%;
+    left: 36.6%;
+    width: 46.9%;
+    height: 51.6%;
+}
+
+.workspace__screen-outline polygon {
+    fill: none;
+    stroke: var(--color-true-cyan);
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke; /* keeps stroke width consistent despite non-uniform scaling from preserveAspectRatio="none" */
+}
+}
+
+@layer utilities {
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px)
+        }
+    }
+
+    .animate-float-slow {
+        animation: float 5s ease-in-out infinite;
+    }
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+    .animate-float-fast {
+        animation: float 3s ease-in-out infinite;
+    }
+
+}
+
+@layer components {
+    .project-card {
+        @apply bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-true-cyan/30 transition-colors backdrop-blur-sm hover:shadow-lg hover:scale-105;
+    }
+}
+ 
+
+@layer components {
+    .service-card {
+        @apply flex flex-col bg-white/5 border border-white/10 rounded-xl p-6 hover:border-true-cyan/30 hover:bg-white/[0.07] transition-all backdrop-blur-sm hover:shadow-lg hover:scale-105;
+    }
+    .discover-link {
+        @apply inline-flex items-center gap-[-8px] text-true-cyan text-sm font-medium hover:gap-3 transition-all mt-auto;
+    }
+}
+
+
+/*@layer components {
+    .contact-input {
+        @apply w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-true-cyan/50 focus:bg-white/[0.07] transition-all backdrop-blur-sm hover:shadow-lg hover:scale-105;
+    }
+}
+*/
+
+@layer components {
+    .contact-input {
+    @apply w-full rounded-xl border border-white/10 bg-white/5;
+    @apply text-white placeholder:text-white/40;
+    @apply px-4 py-4;
+    @apply focus:outline-none focus:border-true-cyan;
+    @apply transition-all duration-300 ease-out;
+    @apply backdrop-blur-sm hover:shadow-lg hover:scale-105;
+    @apply relative z-0;
+}
+
+.contact-input--with-icon {
+    @apply pl-14;
+}
+
+.contact-input__icon {
+    @apply absolute left-5 top-1/2 -translate-y-1/2;
+    @apply w-5 h-5 text-white/40 pointer-events-none;
+    @apply z-10;
+}
+}
+
+
+@layer components {
+    .social-link-card {
+        @apply flex items-center gap-4 px-4 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-true-cyan/30 hover:bg-white/[0.07] transition-all backdrop-blur-sm hover:shadow-lg hover:scale-105;
+    }
+}

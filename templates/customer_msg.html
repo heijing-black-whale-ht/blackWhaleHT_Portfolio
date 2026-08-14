@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you for contacting Heijing HT</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7fb; color: #172033; font-family: Arial, Helvetica, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f7fb;">
+        <tr>
+            <td align="center" style="padding: 32px 16px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width: 640px; background-color: #ffffff; border: 1px solid #e4eaf2; border-radius: 12px; overflow: hidden;">
+                    <tr>
+                        <td style="padding: 32px; background-color: #111827; text-align: center;">
+                            {% if logo_url %}<img src="{{ logo_url }}" width="48" height="48" alt="Heijing HT" style="display: inline-block; margin-bottom: 18px;">{% endif %}
+                            <h1 style="margin: 0; color: #ffffff; font-size: 25px; line-height: 1.3;">Thank you for reaching out</h1>
+                            <p style="margin: 10px 0 0; color: #67e8f9; font-size: 13px; letter-spacing: .5px;">HEIJING HT</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 38px 32px 20px;">
+                            <p style="margin: 0 0 18px; color: #172033; font-size: 16px; line-height: 1.6;">Hi {{ name }},</p>
+                            <p style="margin: 0 0 18px; color: #475569; font-size: 15px; line-height: 1.7;">Your message has been received successfully. Thank you for taking the time to get in touch.</p>
+                            <p style="margin: 0; color: #475569; font-size: 15px; line-height: 1.7;">I will review your message and get back to you as soon as possible.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 16px 32px 38px;">
+                            <div style="padding: 18px 20px; background-color: #ecfeff; border: 1px solid #cffafe; border-radius: 8px; color: #155e75; font-size: 14px; line-height: 1.6;">This is an automated confirmation. There is no need to reply unless you would like to add more information.</div>
+                        </td>
+                    </tr>
+                    <tr><td style="padding: 22px 32px; background-color: #f8fafc; border-top: 1px solid #e8edf3; color: #64748b; font-size: 13px; line-height: 1.6;">Best regards,<br><strong style="color: #172033;">Heijing HT</strong><br>Full-Stack Developer</td></tr>
+                </table>
+                <p style="margin: 18px 0 0; color: #94a3b8; font-size: 11px;">Code with intention. Design with soul.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+# Dependency directories
+node_modules/
+
+static/css/output.css
+
+# Build output
+dist/
+build/
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Lock files (if you want to ignore package lockfiles, uncomment)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Misc
+coverage/
+*.bak
+*.cache

@@ -1,0 +1,21 @@
+{
+  "name": "heijinghtportfoliosite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.1": true
+  }
+}
