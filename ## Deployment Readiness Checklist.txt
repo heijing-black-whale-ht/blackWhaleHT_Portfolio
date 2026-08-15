@@ -1,0 +1,72 @@
+## Deployment Readiness Checklist
+[Θ] : checked; done
+[ ] : unchecked; pending
+[!] : current constraints which can reduce on the performance and efficiency of the website (budget matters)
+[?] : incomplete
+
+Use this as your final pre-launch pass.
+
+### 1. Production configuration
+- [ ] Set a real production `SECRET_KEY`
+- [!] Confirm `RESEND_API_KEY` is your production API key, not a dev/sandbox value (still pending, since I don't have the budget to buy a domain -- thus a production API -- yet)
+- [Θ] Confirm `ADMIN_EMAIL` is a verified live recipient address
+- [!] Replace the placeholder sender domain if needed in the email settings (don't have a proper sender domain on Resend yet)
+- [ ] Ensure the app runs through a production WSGI server, not Flask’s debug server
+
+### 2. Final content polish
+- [Θ] Remove or replace every visible placeholder/unfinished item
+- [Θ] Replace “WIP” copy in the portfolio text
+- [Θ] Replace “Project Two” / generic placeholder project text with real content
+- [Θ] Make sure the resume CTA points to a real downloadable file
+- [?] Confirm each project card has a valid live demo or real outbound destination (only one project card -- cocodatte -- has a valid live demo; the other -- school's website -- still pending)
+
+### 3. Navigation and links
+- [Θ] Remove any `href="#"` buttons that do not have a real target
+- [Θ] Confirm all anchors like `#home`, `#about`, `#portfolio`, `#contact` resolve correctly
+- [Θ] Verify the “back to top” link target is valid
+- [Θ] Check that all external social links open to the correct live profiles
+
+### 4. SEO and crawlability
+- [!] Confirm your production domain is the one used in the canonical URL
+- [ ] Verify the final site is reachable at the correct public URL
+- [ ] Check that `robots.txt` and `sitemap.xml` are live on the deployed domain
+- [ ] Confirm the title, description, and Open Graph preview reflect the final brand
+- [ ] Ensure social sharing metadata uses the final production image URL
+
+### 5. Accessibility and UX
+- [ ] Check contrast and readability across all sections
+- [Θ] Verify the language toggle works correctly across all pages
+- [Θ] Test keyboard navigation and mobile navigation behavior
+- [ ] Make sure the splash screen does not hide content on slower devices
+
+### 6. Performance
+- [ ] Compress all large images before deployment
+- [ ] Check the page weight and load speed on mobile
+- [ ] Ensure animations do not significantly slow the first render
+- [ ] Lazy-load non-critical images if needed
+
+### 7. Contact form and live validation
+- [Θ] Test the contact form end-to-end with production-safe credentials
+- [Θ] Verify success and error states display correctly
+- [Θ] Confirm the confirmation email flow works as intended in production
+
+### 8. Final launch QA
+- [Θ] Test the homepage on desktop and mobile
+- [Θ] Test all language versions
+- [Θ] Test the portfolio section, about section, and contact section individually
+- [ ] Open the site in a private browser and confirm no broken redirects or missing assets
+
+---
+
+## Highest-priority items before launch
+If you only do a few things first, make them these:
+
+1. Replace all placeholder project/link content [Θ]
+2. Confirm production email and secret configuration [Θ]
+3. Verify `robots.txt`, `sitemap.xml`, and canonical domain setup
+4. Test the contact form and resume download flow end-to-end [Θ]
+5. Add a tiny pop-up for sections which aren't available yet (downloadable CV, unavailable links)
+
+### V.1.1 plans
+1. Add Linktree icons + link
+2. Ensure photos (profile photo in About section, certs photos) are clickable.

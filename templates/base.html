@@ -112,13 +112,15 @@ x-data="{
 
             <!-- Language button -->
             <button class="text-2xl text-white hover:text-true-cyan focus:outline-none px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/15 hover:shadow-lg hover:scale-105"
-                    @click="langMenuOpen = !langMenuOpen">
+                    @click="langMenuOpen = !langMenuOpen"
+                    aria-label="Language selection menu">
                 {{ icon('language') }}
             </button>
 
             <!-- Hamburger button (mobile only) -->
             <button class="md:hidden text-2xl text-white hover:text-true-cyan focus:outline-none px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/15 hover:shadow-lg hover:scale-105"
-                    @click="mobileMenuOpen = !mobileMenuOpen">
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    aria-label="Mobile menu toggle">
                 {{ icon('bars-3') }}
             </button>
         </div>
@@ -134,7 +136,7 @@ x-data="{
              x-transition:leave-end="opacity-0 transform -translate-y-2">
             <div class="flex flex-col gap-1 py-2 px-2">
                 {% for language_code, language in available_languages.items() %}
-                <a href="{{ url_for('language', lang=language_code) }}" class="nav-link px-4 py-2 rounded-lg hover:bg-white/5 text-center">{{ language.language_name }}</a>
+                <a href="{{ url_for('language', lang=language_code) }}" class="nav-link px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5 text-center">{{ language.language_name }}</a>
                 {% endfor %}
             </div>
         </div>
@@ -182,14 +184,17 @@ x-data="{
         <!-- Right: social links + back to top -->
         <div class="flex items-center gap-5">
             <a href="https://github.com/heijing-black-whale-ht" target="_blank" rel="noopener noreferrer"
-               class="text-white/60 hover:text-true-cyan transition-colors duration-300 hover:shadow-lg hover:scale-105">
+               class="text-white/60 hover:text-true-cyan transition-colors duration-300 hover:shadow-lg hover:scale-105"
+               aria-label="Visit Heijing HT's GitHub profile">
                 {{ icon('github', classes='w-5 h-5') }}
             </a>
             <a href="https://x.com/heijinghaiti" target="_blank" rel="noopener noreferrer"
-               class="text-white/60 hover:text-true-cyan transition-colors duration-300 hover:shadow-lg hover:scale-105">
+               class="text-white/60 hover:text-true-cyan transition-colors duration-300 hover:shadow-lg hover:scale-105"
+               aria-label="Visit Heijing HT's X (formerly Twitter) profile">
                 {{ icon('x', classes='w-5 h-5') }}
             </a>
-            <a href="#top" class="text-white/60 hover:text-true-cyan transition-colors duration-300 border-l border-white/15 pl-5 animate-bounce">
+            <a href="#top" class="text-white/60 hover:text-true-cyan transition-colors duration-300 border-l border-white/15 pl-5 animate-bounce"
+               aria-label="Back to top of the page">
                 {{ icon('arrow-up-right', classes='w-6 h-6') }}
             </a>
         </div>

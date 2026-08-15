@@ -68,7 +68,7 @@
 
         <div class="workspace__monitor animate-float-slow">
             <img
-                src="{{ url_for('static', filename='images/workspace/monitor.png') }}"
+                src="{{ url_for('static', filename='images/workspace/monitor.webp') }}"
                 alt="Monitor"
                 class="w-full h-auto">
 
@@ -90,7 +90,7 @@
 
         <div class="workspace__laptop animate-float">
             <img
-                src="{{ url_for('static', filename='images/workspace/laptop.png') }}"
+                src="{{ url_for('static', filename='images/workspace/laptop.webp') }}"
                 alt="Laptop"
                 class="w-full h-auto">
 
@@ -113,7 +113,7 @@
 
         <div class="workspace__mug animate-float-fast">
             <img
-                src="{{ url_for('static', filename='images/workspace/mug.png') }}"
+                src="{{ url_for('static', filename='images/workspace/mug.webp') }}"
                 alt="Coffee mug"
                 class="w-full h-auto">
         </div>
@@ -122,7 +122,7 @@
 
   <div class="absolute bottom-6 right-6 md:right-12">
         <!-- Scroll Down Icon -->
-        <a href="#bottom" class="block animate-bounce text-right">
+        <a href="#bottom" class="block animate-bounce text-right" aria-label="Scroll down to the next section">
             {{ icon('arrow-down', classes='w-6 h-6 text-white') }}
         </a>
   </div>
@@ -138,19 +138,19 @@
           This duplicate image is invisible, but creates a blur that matches 
           the exact silhouette of your 'about-illustration.png' 
         -->
-        <img src="{{ url_for('static', filename='images/about-illustration.png') }}"
+        <img src="{{ url_for('static', filename='images/about-illustration.webp') }}"
              alt="" 
              class="max-w-md w-full h-auto opacity-70 blur-3xl saturate-150 brightness-125 mix-blend-screen">
         </div>        
         <!-- A photo with transparent background that'll only be on the left -->
-        <img src="{{ url_for('static', filename='images/about-illustration.png') }}"
+        <img src="{{ url_for('static', filename='images/about-illustration.webp') }}"
         alt="Illustration" class="max-w-md w-full relative z-10 h-auto">
     </div>
 
     <!-- On the right -->
     <div class="flex flex-col gap-4">
         <!-- My photo. Cicle verison -->
-        <img src="{{ url_for('static', filename='images/profile.png') }}"
+        <img src="{{ url_for('static', filename='images/profile.webp') }}"
         alt="Lowin's J. A. Philias"
         class="w-24 h-24 rounded-full object-cover border-2 border-true-cyan
             shadow-[0_0_10px_var(--color-true-cyan),0_0_20px_var(--color-neon-violet)]">
@@ -195,7 +195,7 @@
 
     <!-- Background wave illustration-->
     <div class="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none">
-        <img src="{{ url_for('static', filename='images/portfolio-illustration.png') }}"
+        <img src="{{ url_for('static', filename='images/portfolio-illustration.webp') }}"
              alt=""
              class="w-full max-w-2xl md:max-w-4xl lg:max-w-6xl h-auto opacity-80 blur-md saturate-150 brightness-125">
     </div>
@@ -242,7 +242,7 @@
     x-transition:leave-end="opacity-0 translate-y-4" 
     class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         <div class="project-card">
-            <img src="{{ url_for('static', filename='images/project1.png') }}" alt="Project 1 screenshot" class="w-full h-48 object-cover">
+            <img src="{{ url_for('static', filename='images/project1.webp') }}" alt="Project 1 screenshot" class="w-full h-48 object-cover">
             <div class="p-5">
                 <h3 class="text-lg font-bold text-white mb-2">{{ t.portfolio.project_one }}</h3>
                 <p class="text-white/60 text-sm mb-4">{{ t.portfolio.project_description_one }}</p>
@@ -258,7 +258,7 @@
         </div>
 
         <div class="project-card">
-            <img src="{{ url_for('static', filename='images/project2.png') }}" alt="Project 2 screenshot" class="w-full h-48 object-cover">
+            <img src="{{ url_for('static', filename='images/project2.webp') }}" alt="Project 2 screenshot" class="w-full h-48 object-cover">
             <div class="p-5">
                 <h3 class="text-lg font-bold text-white mb-2">{{ t.portfolio.project_two }}</h3>
                 <p class="text-white/60 text-sm mb-4">{{ t.portfolio.project_description_two }}</p>
@@ -376,7 +376,7 @@
 
     <!-- Background wave illustration -->
     <div class="absolute inset-x-0 top-0 flex justify-center pointer-events-none">
-        <img src="{{ url_for('static', filename='images/portfolio-illustration1.png') }}"
+        <img src="{{ url_for('static', filename='images/portfolio-illustration1.webp') }}"
              alt=""
              class="w-full max-w-2xl md:max-w-4xl lg:max-w-none h-auto opacity-80 blur-md saturate-150 brightness-125">
     </div>
@@ -572,7 +572,7 @@
 
     <!-- Pulsing glow layer -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none animate-pulse">
-        <img src="{{ url_for('static', filename='images/contact-illustration.png') }}"
+        <img src="{{ url_for('static', filename='images/contact-illustration.webp') }}"
              alt=""
              class="max-w-md w-full h-auto opacity-60 blur-2xl saturate-150 brightness-125 mix-blend-screen">
     </div>
