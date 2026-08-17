@@ -232,7 +232,7 @@ translations = {
 			"message": "Mesaj",
 			"send": "Voye mesaj la",
 			"required_fields": "Tanpri ranpli tout chan ki obligatwa yo.",
-			"success": "Mesaj ou a voye avèk siksè ! Yo voye yon imèl konfimasyon tou.",
+			"success": "Mesaj ou a ale avèk siksè ! Yo voye yon imèl konfimasyon pou ou.",
 			"error": "Nou pa kapab trete demann ou an kounye a. Tanpri eseye ankò pita.",
 			"connect_with_me": "Rete an kontak avè m",
 			"lets_connect": "Ann konekte",

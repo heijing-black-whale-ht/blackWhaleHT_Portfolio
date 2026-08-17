@@ -7,11 +7,11 @@
 Use this as your final pre-launch pass.
 
 ### 1. Production configuration
-- [ ] Set a real production `SECRET_KEY`
+- [Θ] Set a real production `SECRET_KEY`
 - [!] Confirm `RESEND_API_KEY` is your production API key, not a dev/sandbox value (still pending, since I don't have the budget to buy a domain -- thus a production API -- yet)
 - [Θ] Confirm `ADMIN_EMAIL` is a verified live recipient address
 - [!] Replace the placeholder sender domain if needed in the email settings (don't have a proper sender domain on Resend yet)
-- [ ] Ensure the app runs through a production WSGI server, not Flask’s debug server
+- [Θ] Ensure the app runs through a production WSGI server, not Flask’s debug server
 
 ### 2. Final content polish
 - [Θ] Remove or replace every visible placeholder/unfinished item
@@ -34,15 +34,15 @@ Use this as your final pre-launch pass.
 - [ ] Ensure social sharing metadata uses the final production image URL
 
 ### 5. Accessibility and UX
-- [ ] Check contrast and readability across all sections
+- [Θ] Check contrast and readability across all sections
 - [Θ] Verify the language toggle works correctly across all pages
 - [Θ] Test keyboard navigation and mobile navigation behavior
-- [ ] Make sure the splash screen does not hide content on slower devices
+- [Θ] Make sure the splash screen does not hide content on slower devices
 
 ### 6. Performance
-- [ ] Compress all large images before deployment
-- [ ] Check the page weight and load speed on mobile
-- [ ] Ensure animations do not significantly slow the first render
+- [Θ] Compress all large images before deployment
+- [Θ] Check the page weight and load speed on mobile
+- [Θ] Ensure animations do not significantly slow the first render
 - [ ] Lazy-load non-critical images if needed
 
 ### 7. Contact form and live validation
@@ -54,7 +54,7 @@ Use this as your final pre-launch pass.
 - [Θ] Test the homepage on desktop and mobile
 - [Θ] Test all language versions
 - [Θ] Test the portfolio section, about section, and contact section individually
-- [ ] Open the site in a private browser and confirm no broken redirects or missing assets
+- [Θ] Open the site in a private browser and confirm no broken redirects or missing assets
 
 ---
 
@@ -66,6 +66,7 @@ If you only do a few things first, make them these:
 3. Verify `robots.txt`, `sitemap.xml`, and canonical domain setup
 4. Test the contact form and resume download flow end-to-end [Θ]
 5. Add a tiny pop-up for sections which aren't available yet (downloadable CV, unavailable links)
+6. Contact form -- improve degraded-network/error handling. Admin message can succeed while customer confirmation fails. Current UX may incorrectly imply the submission failed. [?]
 
 ### V.1.1 plans
 1. Add Linktree icons + link
