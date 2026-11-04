@@ -13,6 +13,9 @@ app = Flask(__name__)
 app.jinja_env.globals["icon"] = icon
 app.secret_key = os.getenv('SECRET_KEY')
 
+@app.route('/health')
+def health():
+    return 'ok', 2000
 
 @app.context_processor
 def inject_translations():
