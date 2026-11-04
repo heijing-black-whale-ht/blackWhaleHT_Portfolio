@@ -9,8 +9,8 @@ function startTypingEffect(elementId, sentences, options = {}) {
     const loop = options.loop !== undefined ? options.loop : true;
     const onComplete = options.onComplete || null;
 
-    let sentenceIndex = 0;
-    let charIndex = 0;
+    let sentenceIndex = 0; // index of the current sentence being typed
+    let charIndex = 0; // index of the current character being typed
 
     function typeNextChar() {
         const currentSentence = sentences[sentenceIndex];

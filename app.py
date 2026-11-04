@@ -15,7 +15,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route('/health')
 def health():
-    return 'ok', 2000
+    return 'ok', 200
 
 @app.context_processor
 def inject_translations():
