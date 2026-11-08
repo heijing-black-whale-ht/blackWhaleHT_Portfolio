@@ -263,10 +263,10 @@
                 <h3 class="text-lg font-bold text-white mb-2">{{ t.portfolio.project_two }}</h3>
                 <p class="text-white/60 text-sm mb-4">{{ t.portfolio.project_description_two }}</p>
                 <div class="flex justify-between items-center">
-                    <a href="#" class="text-true-cyan text-sm font-medium hover:underline hover:animate-pulse flex items-center gap-1">
+                    <a href="#" class="text-true-cyan text-sm font-medium hover:underline hover:animate-pulse flex items-center gap-1 unavailable-link">
                         {{ t.portfolio.live_demo }} {{ icon('arrow-top-right-on-square', classes='w-4 h-4') }}
                     </a>
-                    <a href="#" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 text-white text-sm hover:bg-white/15 hover:shadow-lg hover:scale-105 transition-colors backdrop-blur-sm">
+                    <a href="#" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 text-white text-sm hover:bg-white/15 hover:shadow-lg hover:scale-105 transition-colors backdrop-blur-sm unavailable-link">
                         {{ t.portfolio.details }} {{ icon('arrow-right', classes='w-4 h-4') }}
                     </a>
                 </div>
@@ -618,6 +618,14 @@
             "> PostgreSQL"
         ]
         )
+    });
+
+    document.querySelectorAll(".unavailable-link").forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            alert("This project is not publicly available yet. Please check back soon!");
+        });
     });
 </script>
 {% endblock %}
